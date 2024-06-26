@@ -10,15 +10,21 @@
          [infiniteScrollDistance]="1"
          [infiniteScrollThrottle]="50"
          (scrolled)="onScroll()">
-        <a href="https://apps.apple.com/by/app/%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD-%D0%BA%D0%BD%D0%B8%D0%B3-bookcrossing-io/id6463721259"
-           target="_blank">
-            <p class="sticky top-0 z-20 text-xs bg-red-50 dark:bg-pink-500 flex items-center gap-3 rounded-lg p-2 text-gray-900 dark:text-gray-200">
-            <!--<img src="images/sample.gif" width="100" height="200" alt="Иллюстрация" align="left" vspace="5" hspace="5">-->
-            <img src="/assets/images/download-on-the-app-store-badge.png" alt=""  align="left"
-                 class="w-24 h-auto shrink-0 rounded">
-            Рекомендуем использовать приложение для IOS
-            </p>
-        </a>
+      <a
+        href="https://apps.apple.com/by/app/%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD-%D0%BA%D0%BD%D0%B8%D0%B3-bookcrossing-io/id6463721259"
+        target="_blank">
+        <p
+          class="sticky top-0 z-20 text-xs bg-red-50 dark:bg-pink-500 flex items-center gap-3 rounded-lg p-2 text-gray-900 dark:text-gray-200">
+          <!--<img src="images/sample.gif" width="100" height="200" alt="Иллюстрация" align="left" vspace="5" hspace="5">-->
+          <a
+            href="https://apps.apple.com/by/app/%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD-%D0%BA%D0%BD%D0%B8%D0%B3-bookcrossing-io/id6463721259"
+            target="_blank"><img src="/assets/images/download-on-the-app-store-badge.png" alt="" align="left"
+                                 class="w-24 h-auto shrink-0 rounded"></a>
+          <a href="https://play.google.com/store/apps/details?id=bookcrossing.io" target="_blank"><img
+            src="/assets/images/0_HsI5uQ_8Ju9suain.png" alt="" align="left"
+            class="w-24 h-auto shrink-0 rounded"></a>
+        </p>
+      </a>
       <app-products-list [books]="books$ | async" emptyMessage="Мы не нашли ни одной книги :("></app-products-list>
     </div>
   </div>
