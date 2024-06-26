@@ -1,14 +1,14 @@
 version: "3.9"
 services:
   frontend:
-    image: gitlab.bookcrossing.io:5050/general/frontend:latest
+    image: ghcr.io/anutre/base-frontend:20.0.0-1
     networks:
       - traefik
 
   frontend_web:
     restart: always
     hostname: frontend_web
-    image: nginx:1.25-alpine
+    image: nginx:1.27-alpine
     volumes:
       - ./docker/nginx/config/conf.d:/etc/nginx/conf.d
     sysctls:
