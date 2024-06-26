@@ -26,7 +26,7 @@ services:
       - traefik
     deploy:
       mode: replicated
-      replicas: 3
+      replicas: 1
     depends_on:
       - frontend
 
