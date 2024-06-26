@@ -1,0 +1,24 @@
+<div class="c-panel fixed bottom-0 left-0 w-full h-[60px] bg-white-100 dark:bg-black-400 z-50">
+  <div class="flex">
+    <ng-container *ngFor="let link of links$ | async; trackBy: trackByFn">
+      <ng-container *ngIf="link.url !== '/books'; else createLink">
+        <div class="flex-1">
+          <a class="c-panel__link"
+             [routerLink]="[link.url]"
+             routerLinkActive="c-panel__link--active"
+             [routerLinkActiveOptions]="{exact: true}"
+          >
+            <div [class.marker--active]="isActiveMarkerState(!!(isNewMessageAvailable$ | async), link.url)">
+              <app-icon [name]="link.icon"></app-icon>
+            </div>
+          </a>
+        </div>
+      </ng-container>
+      <ng-template #createLink>
+        <div class="flex-1">
+          <a class="c-panel__link c-panel__link--create" routerLink="/books"></a>
+        </div>
+      </ng-template>
+    </ng-container>
+  </div>
+</div>

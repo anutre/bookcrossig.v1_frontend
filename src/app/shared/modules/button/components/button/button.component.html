@@ -1,0 +1,11 @@
+<button [ngClass]="btnClass"
+        class="c-button c-button--main"
+        [disabled]="disabled"
+        [type]="type"
+        (click)="clickHandler()">
+  <div class="c-button__icon"
+       *ngIf="btnType === 'icon'">
+    <ng-content select="app-icon"></ng-content>
+  </div>
+  <ng-content></ng-content>
+</button>

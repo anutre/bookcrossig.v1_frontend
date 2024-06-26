@@ -1,0 +1,5 @@
+<app-profile-book-list title="Просмотренные книги">
+  <ng-container ngProjectAs="content">
+    <app-products-list [books]="books$ | async" [isNicknameHidden]="false"></app-products-list>
+  </ng-container>
+</app-profile-book-list>

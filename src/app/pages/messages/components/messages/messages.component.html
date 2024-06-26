@@ -1,0 +1,26 @@
+<div class="page">
+  <div class="flex flex-col grow container">
+    <app-header>
+      <app-control
+        template="search"
+        id="messages-search"
+        name="messages-search"
+        placeholder="Поиск..."
+        (inputChange)="searchHandler($event)"></app-control>
+    </app-header>
+    <div class="flex flex-col inner-scroll">
+      <ng-container *ngIf="(chatList$ | async)?.length; else empty">
+        <ul>
+          <ng-container *ngFor="let chat of chatList$ | async; trackBy:trackByKey">
+            <li>
+              <app-messages-item [chat]="chat"></app-messages-item>
+            </li>
+          </ng-container>
+        </ul>
+      </ng-container>
+      <ng-template #empty>
+        <app-messages-placeholder></app-messages-placeholder>
+      </ng-template>
+    </div>
+  </div>
+</div>

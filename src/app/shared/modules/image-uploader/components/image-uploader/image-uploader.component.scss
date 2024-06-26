@@ -1,0 +1,5 @@
+.c-image-uploader {
+  &--placeholder {
+    @apply w-16 h-16 #{!important};
+  }
+}

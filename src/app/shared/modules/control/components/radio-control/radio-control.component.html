@@ -1,0 +1,13 @@
+<mat-radio-group
+  [class]="controlClass"
+  #inputRef
+  [id]="id"
+  [name]="name"
+  [(ngModel)]="value"
+  [disabled]="!!disabled"
+  (change)="changeHandler($event)"
+>
+  <mat-radio-button class="c-radio-group__item" disableRipple *ngFor="let option of options" [value]="option.id">
+    {{option.value}}
+  </mat-radio-button>
+</mat-radio-group>

@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="submitHandler()">
+  <div class="mb-1">
+    <app-control
+      name="email"
+      placeholder="Введите ваш E-mail"
+      type="email"
+      label="E-mail"
+      formControlName="email"
+    ></app-control>
+    <app-control
+      name="password"
+      type="password"
+      label="Пароль"
+      placeholder="Введите ваш пароль"
+      formControlName="password"
+    ></app-control>
+  </div>
+  <a class="font-normal text-sm text-blue-500 transition-colors hover:border-b-solid hover:border-b hover:border-b-blue-500"
+     routerLink="/reset-password">Забыл пароль?</a>
+  <div class="my-10">
+    <app-oauth></app-oauth>
+  </div>
+  <app-button [mode]="['active', 'md', 'fw']">Войти</app-button>
+</form>
+

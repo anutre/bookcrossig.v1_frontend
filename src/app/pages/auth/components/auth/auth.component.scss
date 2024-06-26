@@ -1,0 +1,12 @@
+.p-auth {
+  &--clear {
+
+    .p-auth {
+
+      &__header,
+      &__switcher {
+        @apply hidden;
+      }
+    }
+  }
+}

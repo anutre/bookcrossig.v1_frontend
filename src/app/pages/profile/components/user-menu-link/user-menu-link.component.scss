@@ -1,0 +1,6 @@
+.user-menu-link {
+  &:hover,
+  &--active {
+    @apply text-red-900 #{!important};
+  }
+}

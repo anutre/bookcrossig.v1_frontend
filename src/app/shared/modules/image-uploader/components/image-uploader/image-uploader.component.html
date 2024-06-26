@@ -1,0 +1,16 @@
+<div class="c-image-uploader flex flex-col items-center gap-4 sm:flex-row">
+  <div class="rounded-lg overflow-hidden shrink-0 basis-[250px] sm:basis-[150px] h-[250px] w-[150px] flex bg-red-50 items-center justify-center shadow-md shadow-white-500">
+    <img [src]="image || '/assets/images/upload-image-placeholder.svg'"
+         class="block w-full h-full object-contain object-center"
+         [ngClass]="{'c-image-uploader--placeholder': !image}" />
+  </div>
+  <div class="grow" *ngIf="!image">
+    <label class="block text-center w-40 p-2.5 min-h-[36px] rounded-3xl bg-red-50 text-red-900 text-xs cursor-pointer hover:bg-red-900 hover:text-white-100">
+      {{ btnText }}
+      <input type="file"
+             accept="image/heic,image/heif,image/png,image/jpg,image/jpeg"
+             class="absolute scale-0"
+             (change)="selectFile($event)" />
+    </label>
+  </div>
+</div>

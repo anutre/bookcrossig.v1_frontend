@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/style/index";
+
+.mat-mdc-dialog-container {
+  .mdc-dialog__surface {
+    @apply p-6;
+  }
+}
+.mdc-dialog .mdc-dialog__content {
+  @apply p-0 #{!important};
+}
+//.mat-mdc-dialog-container, .mdc-dialog .mdc-dialog__content {
+//  @apply text-gray-800 dark:text-gray-100 #{'!important'};
+//}

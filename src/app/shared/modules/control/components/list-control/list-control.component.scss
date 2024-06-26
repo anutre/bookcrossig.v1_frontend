@@ -1,0 +1,60 @@
+.c-list-control {
+
+  &__input {
+    @apply relative;
+  }
+
+  &__control {
+    @apply m-0;
+  }
+
+  &__add {
+    @apply absolute top-1/2 right-0 -translate-y-1/2 translate-x-0;
+
+    ::ng-deep {
+
+      .c-button {
+        @apply rounded-none h-14 w-14 text-2xl px-3 py-2;
+      }
+    }
+  }
+
+  &__list {
+    @apply mt-3 p-0 list-none flex gap-3;
+  }
+
+  &__list-item {
+    @apply inline-flex gap-1 justify-center items-center bg-red-900 text-white-100 py-2.5 px-4 rounded-3xl font-normal text-sm relative cursor-pointer;
+  }
+
+  &__delete {
+    @apply ml-1 text-sm translate-x-0 translate-y-px rotate-45;
+  }
+
+  &--disabled {
+
+    .c-list-control {
+
+      &__input {
+        @apply hidden;
+      }
+
+      &__add {
+        ::ng-deep {
+
+          .c-button {
+            @apply bg-gray-50 text-gray-900 cursor-not-allowed;
+          }
+        }
+      }
+
+      &__list-item {
+        @apply bg-gray-50 text-gray-900 cursor-not-allowed;
+      }
+
+      &__delete {
+        @apply hidden;
+      }
+    }
+  }
+}

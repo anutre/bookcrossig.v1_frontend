@@ -1,0 +1,15 @@
+@import "assets/style/mixins/scrollbar";
+
+.c-book-user-scroller {
+
+  ::ng-deep {
+    .font-icons {
+      @apply block text-xs;
+    }
+  }
+
+  &__scroller {
+    @include scrollbar(0px, transparent, transparent)
+  }
+
+}

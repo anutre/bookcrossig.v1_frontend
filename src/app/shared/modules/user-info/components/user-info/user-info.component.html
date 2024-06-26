@@ -1,0 +1,11 @@
+<div class="flex items-center gap-5">
+  <div *ngIf="photo"
+       class="shrink-0 basis-24 w-24 h-24 rounded-full overflow-hidden">
+    <img class="w-full h-full object-contain object-center"
+         [src]="photo" [alt]="photo"/>
+  </div>
+  <div class="flex-1">
+    <p class="font-bold text-sm mb-2 text-gray-900">{{name}}</p>
+    <p class="inline-flex font-normal text-xs text-red-900 py-1 px-2 rounded-3xl bg-red-50">{{nickname}}</p>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="page">
+  <div class="container">
+    <app-header>
+      <!--        <app-profile-link></app-profile-link>-->
+    </app-header>
+    <div class="pb-12 content inner-scroll">
+      <div class="px-9 mb-6 flex justify-center">
+        <app-image-uploader (fileSelect)="selectFileHandler($event)" [image]="bookPhoto"></app-image-uploader>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="submitHandler()">
+        <app-control
+          name="title"
+          placeholder="Введите название книги"
+          label="Название"
+          formControlName="title"
+        ></app-control>
+        <app-control
+          template="list"
+          name="authors"
+          placeholder="Пушкин А.С"
+          label="Введите авторов книги"
+          formControlName="authors"
+        ></app-control>
+        <app-control
+          template="list"
+          name="category"
+          placeholder="Жанр"
+          label="Введите жанр книги"
+          formControlName="categories"
+        ></app-control>
+        <app-control
+          template="select"
+          name="type"
+          placeholder="Выберите действие..."
+          label="Действие"
+          [options]="bookActionList"
+          formControlName="type"
+        ></app-control>
+        <ng-container *ngIf="cityList$ | async as cityList">
+          <app-control
+            template="select"
+            name="type"
+            placeholder="Выберите город..."
+            label="Ваше метоположение"
+            [options]="cityList"
+            formControlName="geoId"
+          ></app-control>
+        </ng-container>
+        <app-control
+          template="textarea"
+          name="description"
+          label="Описание"
+          placeholder="О чем ваша книга?"
+          formControlName="description"
+        ></app-control>
+        <app-control
+          template="textarea"
+          name="message"
+          label="Комментарий"
+          placeholder="Дополнительная информация"
+          formControlName="message"
+        ></app-control>
+        <app-button [disabled]="loading$ | async"
+                    [mode]="['active', 'md', 'fw']">
+          {{ uploadBookTitle(loading$ | async)}}
+        </app-button>
+      </form>
+    </div>
+  </div>
+</div>

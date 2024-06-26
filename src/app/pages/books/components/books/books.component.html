@@ -1,0 +1,26 @@
+<div class="page relative">
+  <div class="container flex flex-col">
+    <app-header>
+      <!--        <app-profile-link></app-profile-link>-->
+    </app-header>
+    <div class="content inner-scroll">
+      <h1 class="max-w-[250px] font-bold text-base text-center mt-0 mx-auto mb-4 dark:text-gray-200">Вы можете добавить к себе книгу через поиск</h1>
+      <div class="max-w-[300px] mt-0 mx-auto mb-6">
+        <app-books-search-form></app-books-search-form>
+      </div>
+      <ng-container *ngIf="loading$ | async; else products">
+        <div class="flex justify-center items-center py-12" *ngIf="loading$ | async">
+          <app-loader></app-loader>
+        </div>
+      </ng-container>
+      <ng-template #products>
+        <div class="pb-28" *ngIf="query$ | async">
+          <app-books-list [books]="books$ | async"></app-books-list>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<div class="sticky bottom-28 left-0 w-full px-5">
+  <app-link [mode]="['button', 'active', 'fw', 'md']" to="/books/new">Добавить свою книгу</app-link>
+</div>

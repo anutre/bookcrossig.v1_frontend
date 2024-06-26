@@ -1,0 +1,16 @@
+<div class="c-book-user-scroller">
+  <p class="flex items-center text-base font-bold mb-4 relative gap-2" *ngIf="title">
+    {{title}}
+  </p>
+  <div class="overflow-auto -mr-4 c-book-user-scroller__scroller">
+    <ul class="m-0 p-0 list-none flex gap-3">
+      <ng-container *ngFor="let user of usersList; trackBy:trackByFn">
+        <li class="c-book-user-scroller__list-item">
+          <a [routerLink]="['/book/' + user.book.id]" class="min-h-[56px] flex items-center justify-center bg-pink-100 rounded-lg py-5 px-4 text-red-900">
+            <span class="text-sm font-bold">{{user.nickname}}</span>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

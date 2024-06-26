@@ -1,0 +1,10 @@
+<div class="c-link-group">
+  <div class="min-h-[48px] flex py-1 px-2 rounded-3xl bg-red-50">
+    <ng-container *ngFor="let link of links">
+      <div class="c-link-group__item">
+        <app-link [mode]="['button', 'md', 'fw']" [to]="link.path">{{link.name}}</app-link>
+      </div>
+    </ng-container>
+  </div>
+</div>
+

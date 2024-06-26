@@ -1,0 +1,10 @@
+<div class="c-ranges-list">
+  <div class="c-ranges-list__inner flex gap-2 overflow-x-scroll">
+    <ng-container *ngFor="let range of rangesList">
+      <div class="flex-auto">
+        <app-range-item [selectedRange]="(selectedRange | async)"
+                        [range]="range"></app-range-item>
+      </div>
+    </ng-container>
+  </div>
+</div>

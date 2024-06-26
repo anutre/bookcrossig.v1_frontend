@@ -1,0 +1,33 @@
+<div class="page">
+  <div class="container">
+    <app-header></app-header>
+    <div class="content inner-scroll">
+      <div class="mb-6">
+        <app-user-info
+          [photo]="(user$ | async)?.photo"
+          [name]="(user$ | async)?.name"
+          [nickname]="(user$ | async)?.nickname"
+        ></app-user-info>
+      </div>
+      <ng-container *ngIf="isNotEqualMainUser(mainUser$ | async, user$ | async)">
+        <div class="mb-6 flex gap-1">
+          <div class="grow basis-full max-w-full">
+            <app-button [mode]="(subscription$ | async) ? ['active', 'md', 'fw'] : ['md', 'fw']"
+                        (btnClick)="subscribeClickHandler()">
+              {{(subscription$ | async) ? 'Отписаться' : 'Подписаться'}}
+            </app-button>
+          </div>
+          <div class="grow basis-full max-w-full">
+            <app-link [to]="'/messages/' + (user$ | async)?.id" [mode]="['button', 'main', 'md', 'fw']">
+              Чат
+            </app-link>
+          </div>
+        </div>
+      </ng-container>
+      <div>
+        <h5 class="title mb-4">Книги пользователя</h5>
+        <app-products-list [books]="books$ | async" [isNicknameHidden]="true"></app-products-list>
+      </div>
+    </div>
+  </div>
+</div>

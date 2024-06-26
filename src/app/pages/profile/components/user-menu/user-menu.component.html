@@ -1,0 +1,18 @@
+<div class="c-user-menu">
+  <ul class="m-0 p-0 list-none">
+    <ng-container *ngFor="let item of NAV_LIST">
+      <li class="border-b border-solid border-b-gray-50 last:border-b-transparent">
+        <app-user-menu-link
+          [icon]="item.icon"
+          [path]="item.path"
+          [text]="item.text"
+        ></app-user-menu-link>
+      </li>
+    </ng-container>
+  </ul>
+  <div class="flex justify-center mt-4">
+    <a class="text-xs text-gray-300"
+       href="mailto:support@bookcrossing.io">Напишите нам support@bookcrossing.io
+    </a>
+  </div>
+</div>

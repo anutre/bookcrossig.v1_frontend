@@ -1,0 +1,19 @@
+.c-badge {
+  @apply py-1 px-2 font-normal text-xs rounded-lg text-white-100;
+
+  &--payed {
+    @apply bg-green-400;
+  }
+
+  &--free {
+    @apply bg-violet-400;
+  }
+
+  &--search {
+    @apply bg-blue-400;
+  }
+
+  &--exchange {
+    @apply bg-orange-400;
+  }
+}

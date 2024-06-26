@@ -1,0 +1,18 @@
+<div [class]="controlClass" [ngClass]="{'c-list-control--disabled': disabled}">
+  <div class="c-list-control__input">
+    <app-control [placeholder]="placeholder" [(ngModel)]="inputValue" class="c-list-control__control" [disabled]="!!disabled"></app-control>
+
+    <app-button class="c-list-control__add" type="button" (click)="addClickHandler()">+</app-button>
+  </div>
+
+  <ul class="c-list-control__list" *ngIf="list && list.length">
+    <li class="c-list-control__list-item"
+        *ngFor="let item of list; trackBy:trackByKey"
+        (click)="deleteClickHandler(item)">
+      <div class="c-list-control__name">{{item}}</div>
+      <div class="c-list-control__delete">
+        <app-icon name="plus"></app-icon>
+      </div>
+    </li>
+  </ul>
+</div>

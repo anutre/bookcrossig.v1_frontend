@@ -1,0 +1,70 @@
+<div class="page p-book" *ngIf="book$ | async">
+  <div class="container">
+    <app-header>
+      <!--        <app-profile-link></app-profile-link>-->
+    </app-header>
+    <div class="content inner-scroll">
+      <div class="flex items-start gap-3 mb-6">
+        <div class="p-book__image shrink-0 basis-[130px] rounded-lg relative overflow-hidden">
+          <ng-container *ngIf="isBrowser">
+            <lightgallery [onInit]="onInit">
+              <a [href]="(book$ | async)?.photo">
+                <app-image [src]="(book$ | async)?.photo"></app-image>
+              </a>
+            </lightgallery>
+          </ng-container>
+          <div class="absolute bottom-2 left-1 z-[2]">
+            <app-badges [status]="(type$ | async)"></app-badges>
+          </div>
+        </div>
+        <div itemscope itemtype="https://schema.org/NewsArticle">
+          <div>
+            <h1 itemprop="headline" class="title">{{(book$ | async)?.title}}</h1>
+            <p itemprop="author" class="p-book__text">{{(book$ | async)?.authors}}</p>
+            <p class="p-book__text">
+              {{(book$ | async)?.categories}}
+              , {{(book$ | async)?.publicationTime | date: 'YYYY'}}</p>
+            <ng-container *ngIf="(bookUser$ | async) as user">
+              <a [routerLink]="['/user/' + user?.id]"
+                 class="p-book__user">{{user?.nickname}}</a>
+            </ng-container>
+            <div class="p-book__user">{{city$ | async}}</div>
+            <ng-container *ngIf="isNotEqualMainUser(mainUser$ | async, bookUser$ | async); else MainUserAction">
+              <div class="p-book__contacts">
+                <ng-container *ngIf="status$ | async; else statusInactive">
+                  <app-button [mode]="['active']">Запрос отправлен</app-button>
+                </ng-container>
+                <ng-template #statusInactive>
+                  <app-button (btnClick)="statusClickHandler()">Отправить запрос</app-button>
+                </ng-template>
+              </div>
+            </ng-container>
+            <ng-template #MainUserAction>
+              <app-link class="block" [mode]="['button', 'sm']" [to]="'/book/edit/' + (urlId$ | async)">Редактировать</app-link>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="grow mt-4 mb-6">
+        <p class="title">Краткое описание</p>
+        <p class="p-book__text">{{(book$ | async)?.description}}</p>
+      </div>
+      <div class="flex flex-col gap-4 justify-center items-center birder-y border-y-gray-50 pt-4 pb-10 mb-4">
+        <div class="w-full">
+          <p class="title">Комментарий</p>
+          <p class="p-book__text">
+            {{message$ | async}}
+          </p>
+        </div>
+      </div>
+      <div class="mb-6" *ngIf="(other$ | async)?.length">
+        <app-book-user-scroller [usersList]="(other$ | async)" title="Эта же книга у других"></app-book-user-scroller>
+      </div>
+      <div class="mb-12" *ngIf="(recommendation$ | async)?.length">
+        <app-book-scroller [booksList]="(recommendation$ | async)" title="Книги этого жанра"></app-book-scroller>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,13 @@
+body {
+  .mat-mdc-form-field {
+    @apply w-full;
+
+    &.mat-focused .mat-mdc-select-arrow {
+      @apply text-red-900;
+    }
+  }
+
+  .mat-mdc-form-field-focus-overlay {
+    @apply bg-white-500;
+  }
+}

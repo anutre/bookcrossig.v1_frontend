@@ -1,0 +1,13 @@
+$name: 'c-image';
+
+:host {
+  @apply flex items-center justify-center;
+}
+
+.#{$name} {
+  @apply object-contain;
+
+  &--auto {
+    @apply w-auto h-auto;
+  }
+}

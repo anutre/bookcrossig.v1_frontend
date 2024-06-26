@@ -1,0 +1,98 @@
+image: node:18-alpine
+
+stages:
+  - install_dependencies
+  - build
+  - docker-image-creation
+  - deploy
+
+
+install_dependencies:
+  stage: install_dependencies
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+  script:
+    - npm i --legacy-peer-deps
+  only:
+    changes:
+      - package-lock.json
+
+
+
+#build_android:
+#  stage: build
+#  script:
+#    - npm run build
+#    - npx cap add ios
+#    - npx cap copy
+#    - cd android
+#    - ./gradlew bundleRelease
+#    - cp ./app/build/outputs/bundle/release/app-release.aab ../app-release.aab
+#
+#  artifacts:
+#    paths:
+#      - ./app-release.aab
+#    expire_in: 1 week
+
+build:
+  stage: build
+  script:
+    - npm run build:ssr
+    - echo "BUILD SUCCESSFUL"
+  dependencies:
+    - install_dependencies
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+      - dist/
+  only:
+    changes:
+      - src/*
+      - angular.json
+  #artifacts:
+  #  when: on_success
+  #  paths:
+  #    - .output
+  only:
+    - develop
+    - main
+
+
+docker_image-creation:
+  image: docker:git # image with docker installed to execute docker commands
+  stage: docker-image-creation # notice a new
+  services:
+    - docker:dind #used to be able to execute docker commands inside of a docker container
+  before_script:
+    - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - dist/
+  script:
+    - ls
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" . -f docker/build/Dockerfile
+    - docker push "$CI_REGISTRY_IMAGE"
+  dependencies:
+    - build
+
+
+
+deploy_docker_image_to_server:
+  image: ubuntu
+  cache:
+    policy: pull
+  before_script:
+    - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )"
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  stage: deploy #new stage after release
+  script:
+    - ssh root@142.93.108.168  ls
+    - ssh root@142.93.108.168 docker login gitlab.bookcrossing.io:5050 -u root -p glpat-fQehe3xbKt8zazH6TZLF
+    - ssh root@142.93.108.168 "cd /root/bookcrossing.io/general/frontend && docker stack deploy -c docker-compose.yml --with-registry-auth frontend_swarm"

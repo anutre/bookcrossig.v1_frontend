@@ -1,0 +1,9 @@
+<app-bottom-modal>
+  <ng-container ngProjectAs="content">
+    <p>Вы действительно хотите удалить аккаунт?</p>
+  </ng-container>
+  <ng-container ngProjectAs="actions">
+    <app-button [mode]="['active', 'fw', 'md']" (btnClick)="confirmDeleteAccount()">Удалить</app-button>
+    <app-button [mode]="['fw', 'md']" [mat-dialog-close]="true">Отмена</app-button>
+  </ng-container>
+</app-bottom-modal>

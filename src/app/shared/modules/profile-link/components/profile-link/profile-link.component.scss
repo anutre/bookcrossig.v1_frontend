@@ -1,0 +1,25 @@
+@import "assets/style/mixins/transition";
+
+:host {
+  display: inherit;
+}
+
+.c-profile-link {
+  display: inherit;
+
+  ::ng-deep {
+    .font-icons {
+      @apply text-2xl text-red-50;
+      @include transition(color, .3s);
+
+      &:hover {
+        @apply text-red-900;
+      }
+    }
+
+    .c-image {
+      @apply max-w-[40px] w-auto h-10 rounded-full;
+    }
+  }
+
+}

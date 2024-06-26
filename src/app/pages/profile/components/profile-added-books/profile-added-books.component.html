@@ -1,0 +1,9 @@
+<app-profile-book-list title="Добавленные книги">
+  <ng-container ngProjectAs="content">
+    <app-products-list [books]="books$ | async"
+                       [editAction]="true"
+                       [isNicknameHidden]="true"
+                       emptyMessage="Вы не добавили еще ни одной книги. Хотите добавить?"
+    ></app-products-list>
+  </ng-container>
+</app-profile-book-list>

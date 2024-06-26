@@ -1,0 +1,10 @@
+<div class="c-select" id="c-select" [ngClass]="{'c-select--disabled': disabled}">
+  <mat-form-field>
+    <mat-label *ngIf="placeholder">{{placeholder}}</mat-label>
+    <mat-select [(ngModel)]="selectedOption" [multiple]="!!settings.multiple" (selectionChange)="changeHandler($event)" [disabled]="!!disabled">
+      <mat-option *ngFor="let option of options" [value]="option[settings.optionVal]">
+        {{option[settings.optionText]}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

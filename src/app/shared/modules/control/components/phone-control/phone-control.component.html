@@ -1,0 +1,28 @@
+<!--<input class="control control&#45;&#45;phone"-->
+<!--       type="text"-->
+<!--       appIntlTelInput-->
+<!--       #inputRef-->
+<!--       [id]="id"-->
+<!--       [value]="value"-->
+<!--       [name]="name"-->
+<!--       (input)="changeHandler()"-->
+<!--&gt;-->
+<div class="c-phone-control" [ngClass]="{'c-phone-control--disabled': disabled}">
+  <ngx-intl-tel-input
+    #inputRef
+    [cssClass]="'control control--phone'"
+    [ngClass]="{}"
+    [enablePlaceholder]="true"
+    [searchCountryFlag]="false"
+    [separateDialCode]="true"
+    [selectedCountryISO]="CountryISO.Belarus"
+    [onlyCountries]="[CountryISO.Belarus, CountryISO.Ukraine, CountryISO.Kazakhstan, CountryISO.Georgia, CountryISO.Azerbaijan]"
+    [maxLength]="15"
+    [phoneValidation]="false"
+    [value]="value"
+    (countryChange)="countryChangeHandler()"
+    (input)="changeHandler()"
+  ></ngx-intl-tel-input>
+
+</div>
+

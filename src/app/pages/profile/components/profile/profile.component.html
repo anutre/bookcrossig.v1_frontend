@@ -1,0 +1,21 @@
+<div class="p-profile page">
+  <div class="container w-full flex flex-col">
+    <div class="mb-4">
+      <app-header>
+        <app-button [mode]="['link']" (click)="logoutClickHandler()"
+                    class="p-profile__logout">Выйти</app-button>
+      </app-header>
+    </div>
+    <div class="pb-10 content inner-scroll">
+      <div class="mb-6" *ngIf="user$ | async">
+        <app-user-info
+          [photo]="(user$ | async)?.photo"
+          [name]="(user$ | async)?.name"
+          [nickname]="(user$ | async)?.nickname"
+        ></app-user-info>
+      </div>
+      <p class="title mb-10">Основная информация</p>
+      <app-user-menu></app-user-menu>
+    </div>
+  </div>
+</div>

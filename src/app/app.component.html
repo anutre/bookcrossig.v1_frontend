@@ -1,0 +1,6 @@
+<div class="app" [ngStyle]="{paddingTop: (isMapPage$ | async) ? 0 : statusBarHeight + 'px'}">
+  <div class="app__viewport">
+    <router-outlet></router-outlet>
+  </div>
+  <app-base-loader></app-base-loader>
+</div>

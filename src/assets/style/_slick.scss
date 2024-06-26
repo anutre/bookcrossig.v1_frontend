@@ -1,0 +1,46 @@
+.slick-slider {
+
+  &:hover {
+
+    .slick-prev,
+    .slick-next {
+      @apply opacity-100;
+    }
+  }
+
+  .slick-prev,
+  .slick-next {
+    @apply w-14 h-14 z-10;
+
+    &:hover::before {
+      @apply text-red-900;
+    }
+
+    &::before {
+      @apply absolute top-0 left-0 w-full h-full text-4xl font-normal;
+
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-size: cover;
+    }
+  }
+
+  .slick-next {
+    @apply right-0;
+
+    &::before {
+      content: "\e902";
+    }
+  }
+
+  .slick-prev {
+    @apply left-0;
+
+    &::before {
+      content: "\e906";
+    }
+  }
+
+
+}

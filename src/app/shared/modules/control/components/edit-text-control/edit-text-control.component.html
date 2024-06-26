@@ -1,0 +1,25 @@
+<div [class]="controlClass" [ngClass]="{'c-control--disabled': disabled}">
+  <ng-container *ngIf="labelIcon">
+    <app-image [src]="labelIcon.icon | imagePath: 'svg'"></app-image>
+  </ng-container>
+  <div class="c-control--inner">
+    <label [for]="id" class="c-control--label">
+      {{ labelIcon?.label }}
+    </label>
+    <input [class]="inputClass"
+           appTrimWhitespace
+           #inputRef
+           [id]="id"
+           [type]="controlType"
+           [placeholder]="placeholder"
+           [(ngModel)]="value"
+           [name]="name"
+           [disabled]="!isEditorMode"
+    >
+    <div
+      class="c-control__icon c-control__icon--edit"
+      (click)="eyeClickHandler()">
+      <app-image [src]="(isEditorMode ? 'save' : 'edit') | imagePath: 'svg'"></app-image>
+    </div>
+  </div>
+</div>

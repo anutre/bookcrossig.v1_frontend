@@ -1,0 +1,18 @@
+<div class="c-oauth my-6">
+  <div class="flex flex-wrap justify-center gap-4">
+    <!--<a href="/" target="_blank" class="c-oauth__item">
+      <img class="c-oauth__icon" src="/assets/images/google-color.svg"/>
+    </a>-->
+    <a href="/" target="_blank" class="c-oauth__item c-oauth__item&#45;&#45;fb">
+      <app-icon name="facebook-white"></app-icon>
+    </a>
+    <div (click)="initAppleOAuth()" class="c-oauth__item c-oauth__item&#45;&#45;apple">
+      <img class="c-oauth__icon" src="/assets/images/apple.png"/>
+    </div>
+    <!--<a href="/" target="_blank" class="c-oauth__item c-oauth__item&#45;&#45;twitter">
+      <app-icon name="twitter-white"></app-icon>
+    </a>-->
+    <telegram-auth-widget *ngIf="!isMobile" botName="bookcrossing_io_bot"></telegram-auth-widget>
+    <!--<button class="button" id="appleid-signin" type="button" (click)="initAppleOAuth()">Apple</button>-->
+  </div>
+</div>

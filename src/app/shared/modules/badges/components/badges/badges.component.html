@@ -1,0 +1,20 @@
+<ng-container *ngIf="EProductLabels.Payed === status">
+  <div class="c-badge c-badge--payed">
+    {{ EBookActions.PAYED }}
+  </div>
+</ng-container>
+<ng-container *ngIf="EProductLabels.Free === status">
+  <div class="c-badge c-badge--free">
+    {{ EBookActions.FREE }}
+  </div>
+</ng-container>
+<ng-container *ngIf="EProductLabels.Search === status">
+  <div class="c-badge c-badge--search">
+    {{ EBookActions.SEARCH }}
+  </div>
+</ng-container>
+<ng-container *ngIf="EProductLabels.Exchange === status">
+  <div class="c-badge c-badge--exchange">
+    {{ EBookActions.EXCHANGE }}
+  </div>
+</ng-container>

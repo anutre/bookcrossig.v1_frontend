@@ -1,0 +1,36 @@
+<div class="p-personal-details page flex flex-col justify-between">
+  <div class="container">
+    <div class="mb-9">
+      <app-header>
+        <span class="title grow basis-full -mb-10 justify-center">Личные данные</span>
+      </app-header>
+    </div>
+    <div class="max-w-[420px] mx-auto my-0 pb-4 w-full content inner-scroll">
+      <form [formGroup]="formGroup">
+        <div *ngFor="let field of (detailFieldList$ | async)"
+             class="first:w-full first:pb-6 mb-6 first:border-b first:border-solid first:border-b-gray-50">
+          <app-control
+            template="edit-text"
+            [type]="field.type"
+            [labelIcon]="field.labelIcon"
+            [placeholder]="field.placeholder"
+            [formControlName]="field.id"
+            (inputChange)="updatePersonalDetail(field.id)"
+          ></app-control>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="w-full shrink-0">
+    <div class="py-2 bg-gray-50"></div>
+    <div class="max-w-[420px] mx-auto mb-3">
+      <app-expanded-panel>
+        <ng-container ngProjectAs="header">Дополнительно</ng-container>
+        <ng-container ngProjectAs="content">
+          <app-button [mode]="['link']" (click)="deleteAccountHandler()"
+                      class="p-personal-details__logout">Удалить аккаунт</app-button>
+        </ng-container>
+      </app-expanded-panel>
+    </div>
+  </div>
+</div>

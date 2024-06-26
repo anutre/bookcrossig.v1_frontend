@@ -1,0 +1,16 @@
+export enum EBooksActionTypes {
+  INIT = '[BOOKS] Books init',
+  SEARCH_BOOKS = '[BOOKS] Search books',
+  SEARCH_BOOKS_SUCCESS = '[BOOKS] Search books success',
+  SEARCH_BOOKS_FAIL = '[BOOKS] Search books fail',
+  CREATE_BOOK = '[BOOKS] Create book',
+  CREATE_BOOK_SUCCESS = '[BOOKS] Create book success',
+  CREATE_BOOK_FAIL = '[BOOKS] Create book fail',
+  FETCH_BOOK = '[BOOKS] Fetch book info',
+  GO_TO_BOOK_FAIL = '[BOOKS] Redirect to created book fail',
+  GO_TO_BOOK_SUCCESS = '[BOOKS] Redirect to created book success',
+  FETCH_BOOK_SUCCESS = '[BOOKS]  Fetch book info success',
+  FETCH_BOOK_FAIL = '[BOOKS]  Fetch book info fail',
+  UPDATE_QUERY = '[BOOKS] Update query',
+  RESET = '[BOOKS] Reset',
+}

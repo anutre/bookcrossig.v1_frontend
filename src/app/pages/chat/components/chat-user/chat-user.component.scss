@@ -1,0 +1,7 @@
+.c-dialog-user {
+  ::ng-deep {
+    img {
+      @apply w-full h-full object-contain object-center;
+    }
+  }
+}

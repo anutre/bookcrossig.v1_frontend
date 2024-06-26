@@ -1,0 +1,34 @@
+@import "assets/style/mixins/transition";
+@import "../../../button/components/button/button.component.scss";
+
+.c-link {
+  @apply inline-flex font-semibold text-xs border-b border-solid border-b-transparent;
+  @include transition(background border color, .3s);
+
+  &__icon {
+    @apply -ml-2.5 text-sm;
+  }
+
+  &--main {
+    @apply text-red-900;
+  }
+
+  &--button {
+    @apply border-b border-solid border-b-transparent;
+    @extend .c-button;
+    @extend .c-button--main;
+
+    &.c-link--active {
+      @extend .c-button--active;
+    }
+
+    &.c-link--md {
+      @extend .c-button--md;
+    }
+
+    &.c-link--fw {
+      @extend .c-button--fw;
+    }
+  }
+
+}

@@ -1,0 +1,10 @@
+<div class="c-range"
+     [ngClass]="{'c-range--active': range === selectedRange}"
+     (click)="toggleRangeFilter()">
+  <div class="c-range__icon">
+    <app-icon name="navigator"></app-icon>
+  </div>
+  <div class="c-range__content">
+    {{range}}км от Вас
+  </div>
+</div>

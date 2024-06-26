@@ -1,0 +1,14 @@
+<div [class]="controlClass" [ngClass]="{'c-amount-control--disabled': disabled}">
+  <button class="c-amount-control__btn" (click)="minusClickHandler()">-</button>
+  <input class="c-amount-control__control control"
+         #inputRef
+         type="number"
+         [id]="id"
+         [(ngModel)]="value"
+         [disabled]="!!disabled"
+         [name]="name"
+         (change)="changeHandler()"
+  >
+
+  <button class="c-amount-control__btn" (click)="plusClickHandler()">+</button>
+</div>

@@ -1,0 +1,22 @@
+@import "assets/style/mixins/transition";
+
+.c-search-control {
+
+  &__input {
+    @apply bg-gray-100 dark:bg-white-500 border border-solid border-gray-50 dark:border-gray-300 font-normal w-full text-sm rounded-3xl min-h-[48px] py-3.5 pr-16 pl-5;
+    @include transition(color border-color background, .3s);
+
+    &::placeholder {
+      @apply font-normal text-sm flex items-center text-white-500 dark:text-gray-300;
+    }
+
+    &--password {
+      @apply pr-11;
+    }
+  }
+
+  &__icon {
+    @apply absolute cursor-pointer top-1/2 right-0 w-14 h-12 flex justify-center items-center text-lg translate-x-0 -translate-y-1/2 dark:text-gray-300;
+  }
+}
+

@@ -1,0 +1,37 @@
+@import "assets/style/mixins/transition";
+
+.c-control {
+
+  &__input {
+    @apply relative flex w-full py-2.5 px-4 border-b border-solid border-b-gray-50 min-h-[56px] font-normal text-sm text-gray-900;
+    @include transition(color border-color background, .3s);
+
+    &::placeholder {
+      @apply font-normal text-sm flex items-center text-white-500;
+    }
+
+    &--password {
+      @apply pr-11;
+    }
+  }
+
+  &__icon {
+    @apply absolute cursor-pointer;
+
+    &--eye {
+      @apply top-8 right-4 w-4 h-4 text-gray-900;
+    }
+  }
+
+  &--disabled {
+
+    .c-control {
+
+      &__input {
+        @apply bg-gray-50 cursor-not-allowed;
+      }
+    }
+  }
+
+}
+

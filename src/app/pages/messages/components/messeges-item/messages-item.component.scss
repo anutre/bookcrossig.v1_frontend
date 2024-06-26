@@ -1,0 +1,8 @@
+.c-message-item {
+  &__active {
+    &:after {
+      content: '1';
+      @apply absolute block w-4 h-4 rounded-full bg-red-900 text-xs text-center -translate-y-2 text-white-400;
+    }
+  }
+}

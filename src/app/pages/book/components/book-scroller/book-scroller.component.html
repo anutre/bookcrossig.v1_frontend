@@ -1,0 +1,17 @@
+<div class="c-book-scroller">
+  <p class="flex items-center text-base font-bold mb-4 relative gap-2" *ngIf="title">
+    {{title}}
+  </p>
+  <div class="overflow-auto -mr-4 c-book-scroller__scroller">
+    <ul class="m-0 p-0 list-none flex gap-4">
+      <ng-container *ngFor="let book of booksList; trackBy:trackByFn">
+        <li class="basis-20 overflow-hidden shrink-0">
+          <a [routerLink]="['/book/' + book.id]" class="flex flex-col gap-1">
+            <app-image [src]="book.photo" class="rounded overflow-hidden"></app-image>
+            <span class="text-xs font-bold w-24 truncate">{{book.title}}</span>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

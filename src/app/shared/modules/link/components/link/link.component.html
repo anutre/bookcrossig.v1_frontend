@@ -1,0 +1,11 @@
+<a [ngClass]="linkClass"
+   [routerLink]="[linkPath]"
+   [routerLinkActive]="'c-link--active'"
+   [target]="target"
+>
+  <div class="c-link__icon"
+       *ngIf="linkType === 'icon'">
+    <ng-content select="app-icon"></ng-content>
+  </div>
+  <ng-content></ng-content>
+</a>

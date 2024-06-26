@@ -1,0 +1,8 @@
+@import "assets/style/mixins/scrollbar";
+
+.c-ranges-list {
+
+  &__inner {
+    @include scrollbar(0px, transparent, transparent)
+  }
+}

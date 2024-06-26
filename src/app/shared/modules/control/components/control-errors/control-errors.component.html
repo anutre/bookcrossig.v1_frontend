@@ -1,0 +1,5 @@
+<ul class="p-0 m-0 list-none" *ngIf="errList?.length">
+  <ng-container *ngFor="let error of errList">
+    <li class="mb-1 text-xs text-red-400 last:mb-0">{{error}}</li>
+  </ng-container>
+</ul>

@@ -1,0 +1,6 @@
+::ng-deep {
+  [class*="controls__control_toolbar"],
+  [class*="copyrights-pane"] {
+    display: none !important;
+  }
+}

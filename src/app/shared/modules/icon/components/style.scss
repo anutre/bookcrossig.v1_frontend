@@ -1,0 +1,129 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?syezmq') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?syezmq') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?syezmq##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.font-icons {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-icons--arrow-up {
+  &:before {
+    content: $font-icons--arrow-up; 
+  }
+}
+.font-icons--book-saved {
+  &:before {
+    content: $font-icons--book-saved; 
+  }
+}
+.font-icons--message-question {
+  &:before {
+    content: $font-icons--message-question; 
+  }
+}
+.font-icons--plus-rounded {
+  &:before {
+    content: $font-icons--plus-rounded; 
+  }
+}
+.font-icons--trash {
+  &:before {
+    content: $font-icons--trash; 
+  }
+}
+.font-icons--eye-slash {
+  &:before {
+    content: $font-icons--eye-slash; 
+  }
+}
+.font-icons--arr-left {
+  &:before {
+    content: $font-icons--arr-left; 
+  }
+}
+.font-icons--arr-right {
+  &:before {
+    content: $font-icons--arr-right; 
+  }
+}
+.font-icons--eye {
+  &:before {
+    content: $font-icons--eye; 
+  }
+}
+.font-icons--facebook-white {
+  &:before {
+    content: $font-icons--facebook-white; 
+  }
+}
+.font-icons--navigator {
+  &:before {
+    content: $font-icons--navigator; 
+  }
+}
+.font-icons--twitter-white {
+  &:before {
+    content: $font-icons--twitter-white; 
+  }
+}
+.font-icons--user {
+  &:before {
+    content: $font-icons--user; 
+  }
+}
+.font-icons--vkontakte-white {
+  &:before {
+    content: $font-icons--vkontakte-white; 
+  }
+}
+.font-icons--plus {
+  &:before {
+    content: $font-icons--plus; 
+  }
+}
+.font-icons--search {
+  &:before {
+    content: $font-icons--search; 
+  }
+}
+.font-icons--map {
+  &:before {
+    content: $font-icons--map; 
+  }
+}
+.font-icons--home {
+  &:before {
+    content: $font-icons--home; 
+  }
+}
+.font-icons--message {
+  &:before {
+    content: $font-icons--message; 
+  }
+}
+.font-icons--book {
+  &:before {
+    content: $font-icons--book; 
+  }
+}
+

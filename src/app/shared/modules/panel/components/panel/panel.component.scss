@@ -1,0 +1,49 @@
+.c-panel {
+  &__link {
+    @apply flex justify-center items-center text-2xl text-red-50 dark:text-gray-400 min-h-[48px];
+
+    &:hover,
+    &--active {
+      @apply text-red-900 dark:text-red-500;
+    }
+
+    &--create {
+      @apply w-14 h-14 bg-red-900 dark:bg-red-500 border-4 border-solid border-white-100 dark:border-black-400 rounded-full relative -mt-4 mx-auto mb-0;
+
+      &::before, &::after {
+        content: '';
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-0.5 bg-white-100 dark:bg-gray-200;
+      }
+
+      &::after {
+        @apply -translate-x-1/2 -translate-y-1/2 rotate-90;
+      }
+    }
+
+    .marker {
+
+      &--active {
+        @apply relative;
+
+        &::after {
+          content: '';
+          animation: infinite-marker 2s linear infinite;
+          @apply absolute block top-0 right-1 w-2 h-2 rounded-full bg-red-900 dark:bg-red-500;
+        }
+      }
+    }
+  }
+  @keyframes infinite-marker {
+    0% {
+      opacity: 0.5;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0.5;
+    }
+  }
+}

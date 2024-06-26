@@ -1,0 +1,20 @@
+.p-book {
+
+  &__image {
+
+    ::ng-deep {
+      .c-image {
+        @apply w-full h-full object-cover object-center;
+      }
+    }
+  }
+
+  &__text {
+    @apply text-sm break-words mb-3 last:m-0;
+  }
+
+  &__user {
+    @apply inline-flex bg-red-50 dark:bg-red-200/90 text-red-900 dark:text-white-400 rounded-3xl py-1 px-2 text-xs mx-0.5 mb-4;
+  }
+
+}

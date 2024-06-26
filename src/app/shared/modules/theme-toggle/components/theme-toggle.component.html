@@ -1,0 +1,6 @@
+<mat-slide-toggle
+  [checked]="(theme$ | async) === EThemeMode.DARK"
+  (change)="toggleThemeMode($event)"
+  #themeModeSwitch
+></mat-slide-toggle>
+

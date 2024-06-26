@@ -1,0 +1,37 @@
+:host {
+  @apply flex;
+}
+
+.c-dialog-item {
+  @apply p-4 rounded-lg rounded-b-none max-w-full bg-gray-100 relative;
+
+  &::before {
+    content: '';
+    @apply absolute left-0 top-full w-0 h-0 border-b-0 border-l-0 border-t-[12px] border-r-[12px] border-t-gray-100 border-b-transparent border-l-transparent border-r-transparent;
+  }
+
+  &__text {
+    @apply font-normal text-sm text-gray-400 break-words;
+
+    &--link {
+      @apply text-blue-400 font-bold underline;
+    }
+  }
+
+  &__date {
+    @apply absolute font-normal text-xs text-white-500 left-6 whitespace-nowrap;
+    top: calc(100% + 2px);
+  }
+
+  &--self {
+    @apply ml-auto bg-pink-100 rounded-lg rounded-b-none;
+
+    &::before {
+      @apply left-auto right-0 border-t-0 border-l-0 border-b-[12px] border-r-[12px] border-r-pink-100 border-b-transparent border-l-transparent border-t-transparent;
+    }
+
+    .c-dialog-item__date {
+      @apply right-6 left-auto;
+    }
+  }
+}

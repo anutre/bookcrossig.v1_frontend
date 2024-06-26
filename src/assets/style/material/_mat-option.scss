@@ -1,0 +1,14 @@
+body {
+  .mat-mdc-option {
+
+    &.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+      @apply text-gray-900;
+    }
+
+    .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after,
+    .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
+      @apply text-red-900;
+    }
+  }
+}
+

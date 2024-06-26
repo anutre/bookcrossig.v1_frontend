@@ -1,0 +1,70 @@
+@import "fonts";
+@import "variables/colors";
+@import "mixins/scrollbar";
+
+$layout-offset-bottom: 63px;
+
+
+body, html {
+  height: 100dvh;
+}
+
+body {
+  font-family: $base-font;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+a {
+  @apply no-underline text-gray-900 dark:text-gray-200 hover:text-inherit;
+}
+
+p {
+  @apply text-gray-900 dark:text-gray-200;
+
+  .link {
+    @apply underline;
+  }
+}
+
+img {
+  @apply max-w-full;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+.page {
+  @apply flex overflow-hidden h-full justify-center;
+
+  &--center {
+    @apply justify-center items-center;
+  }
+}
+
+.title {
+  @apply font-bold text-sm leading-4 flex items-center mb-4 text-gray-900 dark:text-gray-100;
+}
+
+.container {
+  @apply w-full px-5;
+}
+
+.inner-scroll {
+  @apply flex-1 overflow-auto -mr-5 pr-5;
+  @include scrollbar(5px, $red-900);
+}
+
+.dark {
+  .inner-scroll {
+    @include scrollbar(5px, $pink-500);
+  }
+}
+
+.content {
+  max-height: calc(100% - 65px);
+}
+

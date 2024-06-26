@@ -1,0 +1,7 @@
+<div class="flex flex-col-reverse gap-8">
+  <ng-container *ngFor="let message of messages; trackBy:trackByKey">
+    <div class="-scale-y-100">
+      <app-dialog-item [message]="message"></app-dialog-item>
+    </div>
+  </ng-container>
+</div>

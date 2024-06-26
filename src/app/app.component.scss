@@ -1,0 +1,15 @@
+:host {
+  @apply h-full flex flex-col;
+}
+
+.app {
+  @apply h-full;
+
+  &__viewport {
+    @apply w-full h-full;
+  }
+}
+
+.content {
+  @apply h-[943px] w-full bg-blue-500 mb-12;
+}

@@ -1,0 +1,36 @@
+:host {
+  @apply block mb-6 flex-1 last:mb-0;
+}
+
+.control-wrapper {
+  @apply relative flex flex-col;
+
+  &__label {
+    @apply text-gray-900 mb-1 font-semibold text-sm flex items-center;
+  }
+
+  &__errors {
+    @apply mt-1;
+  }
+
+  &--invalid {
+
+    ::ng-deep {
+
+      .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+        @apply border-b-red-400 #{!important};
+      }
+
+      .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label,
+      .c-textarea,
+      .c-control__input {
+        @apply border-red-400 text-red-400;
+
+        &::placeholder {
+          @apply text-red-400;
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.c-range {
+  @apply flex items-center bg-red-50 dark:bg-pink-500 py-1.5 px-3 rounded-3xl gap-1 cursor-pointer;
+
+  &__icon {
+    font-size: 8px;
+    line-height: 8px;
+    @apply w-4 h-4 rounded-full flex justify-center items-center bg-red-900 dark:bg-white-100/90 text-white-100 dark:text-red-500;
+  }
+
+  &__content {
+    @apply flex-1 whitespace-nowrap text-red-900 dark:text-white-400 text-sm;
+  }
+
+  &--active {
+    @apply bg-red-900 dark:bg-red-500;
+
+    .c-range {
+      &__icon {
+        @apply bg-white-100 text-red-900;
+      }
+
+      &__content {
+        @apply text-white-100 dark:text-pink-50;
+      }
+    }
+  }
+}

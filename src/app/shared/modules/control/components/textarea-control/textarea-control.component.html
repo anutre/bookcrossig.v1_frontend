@@ -1,0 +1,11 @@
+
+<textarea class="c-textarea"
+          [ngClass]="{'c-textarea--disabled': disabled}"
+          #inputRef
+          [id]="id"
+          [placeholder]="placeholder"
+          [(ngModel)]="value"
+          [name]="name"
+          [disabled]="!!disabled"
+          (input)="changeHandler()"
+></textarea>

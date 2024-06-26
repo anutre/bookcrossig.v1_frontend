@@ -1,0 +1,21 @@
+.c-oauth {
+  &__item {
+    @apply w-12 h-12 bg-gray-200 rounded-full p-2 text-3xl flex justify-center items-center text-white-100;
+
+    &--vk {
+      @apply text-lg bg-blue-500;
+    }
+
+    &--fb {
+      @apply text-xl bg-blue-500;
+    }
+
+    &--twitter {
+      @apply text-lg bg-blue-500;
+    }
+  }
+
+  &__icon {
+    @apply w-full h-full;
+  }
+}

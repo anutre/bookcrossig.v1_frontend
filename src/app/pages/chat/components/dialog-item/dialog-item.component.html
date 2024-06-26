@@ -1,0 +1,15 @@
+<div class="c-dialog-item" [ngClass]="{'c-dialog-item--self': _message.user_sender_id === (senderUser$ | async)?.id}">
+  <ng-container *ngIf="isLinkMessage; else text">
+    <a class="c-dialog-item__text"
+       [ngClass]="{'c-dialog-item__text--link': isLinkMessage}"
+       [href]="_message.text" target="_blank">
+      {{_message.text}}
+    </a>
+  </ng-container>
+  <ng-template #text>
+    <div class="c-dialog-item__text">
+      {{_message.text}}
+    </div>
+  </ng-template>
+  <div class="c-dialog-item__date">{{_message.created_at | date: 'dd.MM.YYYY | hh:mm'}}</div>
+</div>

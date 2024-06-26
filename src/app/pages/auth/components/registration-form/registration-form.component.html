@@ -1,0 +1,41 @@
+<form [formGroup]="form" (ngSubmit)="submitHandler()">
+  <div>
+    <app-control
+      name="text"
+      placeholder="Только английские буквы"
+      label="Никнейм"
+      formControlName="nickname"
+    ></app-control>
+    <app-control
+      name="email"
+      placeholder="Введите ваш E-mail"
+      type="email"
+      label="E-mail"
+      formControlName="email"
+    ></app-control>
+    <app-control
+      name="password"
+      type="password"
+      label="Пароль"
+      placeholder="Минимум 8 символов"
+      formControlName="password"
+    ></app-control>
+    <app-control
+      template="checkbox"
+      name="agreement"
+      formControlName="agreement"
+    >
+      Даю согласие на обработку <a routerLink="/privacy-policy" target="_blank">персональный данных</a>
+    </app-control>
+    <app-control
+      template="checkbox"
+      name="personalAgreement"
+      formControlName="personalAgreement"
+    >
+      Я согласен получать почтовые рассылки и новости
+    </app-control>
+  </div>
+  <app-oauth></app-oauth>
+  <app-button [mode]="['active', 'md', 'fw']">Зарегистрироваться</app-button>
+</form>
+

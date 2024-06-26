@@ -1,0 +1,119 @@
+<div class="control-wrapper"
+     [ngClass]="{
+     'control-wrapper--invalid': errors.length,
+     'control-wrapper--disabled': control?.disabled
+     }">
+  <ng-container *ngIf="label">
+    <label class="control-wrapper__label" [for]="id">{{label}}</label>
+  </ng-container>
+
+  <ng-container [ngSwitch]="template">
+    <ng-container *ngSwitchCase="'text'">
+      <app-text-control
+        [id]="id"
+        [value]="value"
+        [type]="type"
+        [mod]="mod"
+        [placeholder]="placeholder"
+        [disabled]="control?.disabled"
+        (inputChange)="changeHandler($event)"
+      ></app-text-control>
+    </ng-container>
+    <ng-container *ngSwitchCase="'textarea'">
+      <app-textarea-control
+        [id]="id"
+        [value]="value"
+        [placeholder]="placeholder"
+        [mod]="mod"
+        [disabled]="control?.disabled"
+        (inputChange)="changeHandler($event)"
+      ></app-textarea-control>
+    </ng-container>
+    <ng-container *ngSwitchCase="'select'">
+      <app-select-control
+        [id]="id"
+        [options]="options"
+        [placeholder]="placeholder"
+        [selectedOption]="value"
+        [settings]="settings"
+        [disabled]="control?.disabled"
+        (inputChange)="changeHandler($event)"
+      ></app-select-control>
+    </ng-container>
+    <ng-container *ngSwitchCase="'phone'">
+      <app-phone-control
+        [id]="id"
+        [value]="value"
+        [disabled]="control?.disabled"
+        (inputChange)="changeHandler($event)"
+      ></app-phone-control>
+    </ng-container>
+    <ng-container *ngSwitchCase="'radio'">
+      <app-radio-control
+        [id]="id"
+        [name]="name"
+        [options]="options"
+        [mod]="mod"
+        [value]="value"
+        [disabled]="control?.disabled"
+        (inputChange)="changeHandler($event)"
+      ></app-radio-control>
+    </ng-container>
+    <ng-container *ngSwitchCase="'checkbox'">
+      <app-checkbox-control
+        [name]="name"
+        [value]="value"
+        [mod]="mod"
+        [disabled]="control?.disabled"
+        (inputChange)="changeHandler($event)"
+      >
+        <ng-content></ng-content>
+      </app-checkbox-control>
+    </ng-container>
+    <ng-container *ngSwitchCase="'amount'">
+      <app-amount-control
+        [id]="id"
+        [name]="name"
+        [value]="value"
+        [mod]="mod"
+        [disabled]="control?.disabled"
+        (inputChange)="changeHandler($event)"
+      ></app-amount-control>
+    </ng-container>
+    <ng-container *ngSwitchCase="'search'">
+      <app-search-control
+        [id]="id"
+        [name]="name"
+        [value]="value"
+        [placeholder]="placeholder"
+        [disabled]="control?.disabled"
+        (inputChange)="changeHandler($event)"
+      ></app-search-control>
+    </ng-container>
+    <ng-container *ngSwitchCase="'list'">
+      <app-list-control
+        [id]="id"
+        [name]="name"
+        [list]="value"
+        [placeholder]="placeholder"
+        [disabled]="control?.disabled"
+        (inputChange)="changeHandler($event)"
+      ></app-list-control>
+    </ng-container>
+    <ng-container *ngSwitchCase="'edit-text'">
+      <app-edit-text-control
+        [id]="id"
+        [name]="name"
+        [value]="value"
+        [type]="type"
+        [labelIcon]="labelIcon"
+        [placeholder]="placeholder"
+        (inputChange)="changeHandler($event)"
+      ></app-edit-text-control>
+    </ng-container>
+  </ng-container>
+
+  <div class="control-wrapper__errors" *ngIf="errors.length">
+    <app-control-errors [errList]="errors"></app-control-errors>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+:host {
+  ::ng-deep {
+    .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+    .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
+    .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled ~ .mdc-checkbox__background {
+      @apply bg-red-900 border-red-900 #{!important};
+    }
+
+    .mat-checkbox-label {
+      @apply whitespace-normal font-normal text-xs text-gray-300;
+    }
+  }
+}
+
+.c-checkbox {
+  ::ng-deep {
+    .mat-checkbox-frame {
+      @apply border-gray-300;
+    }
+
+    .mdc-checkbox__ripple {
+      @apply hidden;
+    }
+  }
+}

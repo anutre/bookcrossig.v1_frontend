@@ -1,0 +1,23 @@
+.amount-control {
+  @apply flex border border-solid border-gray-300;
+
+  &__control {
+    @apply text-center text-gray-300 p-0;
+
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      @apply m-0;
+    }
+
+    /* Firefox */
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  &__btn {
+    @apply shrink-0 basis-14 max-w-[56px] lg:basis-8 lg:max-w-[32px] bg-transparent hover:bg-gray-300 border-none font-normal text-2xl text-center text-blue-500
+  }
+}

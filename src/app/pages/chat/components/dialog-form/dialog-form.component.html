@@ -1,0 +1,17 @@
+<form class="c-dialog-form flex relative h-20 bg-gray-100" [formGroup]="form" (ngSubmit)="submitHandler($event)" (keyup.enter)="submitHandler($event)">
+  <div class="grow">
+    <app-control
+      template="textarea"
+      name="message"
+      placeholder="Написать сообщение..."
+      formControlName="message"
+    ></app-control>
+  </div>
+  <div class="absolute top-1/2 right-4 translate-x-0 -translate-y-1/2">
+    <app-button [mode]="['icon', 'active', 'rounded', 'sm']">
+      <ng-container>
+        <app-icon name="arrow-up"></app-icon>
+      </ng-container>
+    </app-button>
+  </div>
+</form>

@@ -1,0 +1,12 @@
+<div class="w-full">
+  <div class="flex gap-4 min-h-[55px] py-2 px-0 relative items-center">
+    <a [routerLink]="backLink" class="flex items-center shrink-0 basis-8 cursor-pointer dark:text-gray-200"
+       (click)="backClickHandler()">
+      <app-icon name="arr-left"></app-icon>
+    </a>
+    <div class="grow flex items-center justify-end">
+      <ng-content></ng-content>
+    </div>
+    <app-theme-toggle></app-theme-toggle>
+  </div>
+</div>

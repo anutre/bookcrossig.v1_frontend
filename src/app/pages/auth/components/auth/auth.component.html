@@ -1,0 +1,11 @@
+<div class="container w-full flex flex-col">
+  <div class="mb-4" [class.hidden]="isAppleConfirmPage()">
+    <app-header backLink="/"></app-header>
+  </div>
+  <div class="content inner-scroll pb-10">
+    <div class="pb-10" [class.hidden]="isAppleConfirmPage()">
+      <app-link-group [links]="authLinks"></app-link-group>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

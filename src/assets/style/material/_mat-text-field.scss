@@ -1,0 +1,27 @@
+body {
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    @apply bg-white-100;
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+    @apply border-b-gray-50 #{!important};
+  }
+
+  .mdc-text-field--filled .mdc-line-ripple::after {
+    @apply border-b-red-50 #{!important};
+  }
+
+  .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    @apply text-gray-900 #{!important};
+  }
+
+  //.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  .mdc-text-field .mdc-floating-label {
+    @apply font-normal text-sm flex items-center text-white-100;
+  }
+
+  .mdc-text-field--disabled {
+    @apply bg-gray-50 #{!important};
+  }
+}

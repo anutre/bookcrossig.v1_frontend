@@ -1,0 +1,23 @@
+<div [class]="controlClass" [ngClass]="{'c-control--disabled': disabled}">
+  <input [class]="inputClass"
+         #inputRef
+         [id]="id"
+         [type]="controlType"
+         [placeholder]="placeholder"
+         [(ngModel)]="value"
+         [name]="name"
+         [disabled]="!!disabled"
+         (input)="changeHandler()"
+  >
+  <ng-container *ngIf="isPassword">
+    <div
+      class="c-control__icon c-control__icon--eye"
+      (click)="eyeClickHandler()">
+      <app-icon
+        [name]="isPassword && controlType === 'password' ? 'eye-slash' : 'eye'"
+      >
+      </app-icon>
+    </div>
+  </ng-container>
+</div>
+

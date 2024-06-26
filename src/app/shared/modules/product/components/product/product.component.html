@@ -1,0 +1,41 @@
+<div class="c-product" [class.c-product__status--inactive]="!!hiddenStatus">
+  <div class="c-product__inner">
+    <div class="c-product__image">
+      <a [routerLink]="[link]">
+        <app-image
+          [src]="photo"
+          [alt]="title"
+          initHeight="116"
+          initWidth="79"
+        ></app-image>
+      </a>
+    </div>
+    <div class="c-product__content">
+      <a [routerLink]="[link]" class="c-product__info">
+        <p class="c-product__title">{{title}}</p>
+        <p class="c-product__sub-title">{{author}}</p>
+        <p class="c-product__text">
+          {{categories}},
+          <ng-container *ngIf="publicationTime">
+            {{publicationTime | date: 'YYYY'}}
+          </ng-container>
+        </p>
+      </a>
+      <ng-container *ngIf="nickname">
+        <a [routerLink]="['/user/' + userId]" class="c-product__user">
+          {{nickname}}
+        </a>
+      </ng-container>
+    </div>
+    <div class="c-product__badges">
+      <app-badges [status]="status"></app-badges>
+    </div>
+    <ng-container *ngIf="(existUser$ | async) as existUser">
+      <a *ngIf="isExistUser(existUser?.id, userId) || isEditAction"
+         class="c-product__actions"
+         [routerLink]="['/book/edit/' + bookId]">
+        <app-image [src]="'edit-wheel' | imagePath: 'svg'"></app-image>
+      </a>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="page">
+  <div class="container">
+    <app-header>
+      <!--        <app-profile-link></app-profile-link>-->
+    </app-header>
+    <div class="pb-12 content inner-scroll">
+      <ng-container *ngIf="bookLoading$ | async; else bookData">
+        <div class="flex justify-center items-center py-12">
+          <app-loader></app-loader>
+        </div>
+      </ng-container>
+      <ng-template #bookData>
+        <div class="px-9 mb-6 flex justify-center">
+          <app-image-uploader [image]="bookPhoto"></app-image-uploader>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="submitHandler()">
+          <app-control
+            name="title"
+            placeholder="Введите название книги"
+            label="Название"
+            formControlName="title"
+          ></app-control>
+          <app-control
+            template="select"
+            name="type"
+            placeholder="Выберите действие..."
+            label="Действие"
+            [options]="bookActionList"
+            formControlName="type"
+          ></app-control>
+          <app-control
+            template="select"
+            name="status"
+            placeholder="Выберите статус..."
+            label="Статус"
+            [options]="bookStatusList"
+            formControlName="status"
+          ></app-control>
+          <ng-container *ngIf="cityList$ | async as cityList">
+            <app-control
+              template="select"
+              name="type"
+              placeholder="Выберите город..."
+              label="Ваше метоположение"
+              [options]="cityList"
+              formControlName="geoId"
+            ></app-control>
+          </ng-container>
+          <app-control
+            template="textarea"
+            name="message"
+            label="Комментарий"
+            placeholder="Дополнительная информация"
+            formControlName="message"
+          ></app-control>
+          <app-button [mode]="['active', 'md', 'fw']">Сохранить</app-button>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+</div>

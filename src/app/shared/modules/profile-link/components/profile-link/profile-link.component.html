@@ -1,0 +1,8 @@
+<a routerLink="/profile" class="c-profile-link">
+  <ng-container *ngIf="isAuth$ | async; else notAuth">
+    <app-image [src]="(user$ | async)?.photo"></app-image>
+  </ng-container>
+  <ng-template #notAuth>
+    <app-icon  name="user"></app-icon>
+  </ng-template>
+</a>

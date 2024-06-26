@@ -1,0 +1,12 @@
+<div class="c-loader fixed top-0 left-0 w-full h-full bg-white-100 flex justify-center items-center z-[1001]" *ngIf="isLoading | async">
+  <div class="container">
+    <div class="p-5 text-center">
+      <div class="mb-10 animate-spin">
+        <app-image src="/assets/images/logo.png"></app-image>
+      </div>
+      <div class="c-loader__text ">
+        <span class="text-red-900">Book</span>crossing
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="page p-chat">
+  <div class="container">
+    <app-header>
+      <app-chat-user [receiveUser]="receiveUser$ | async"></app-chat-user>
+    </app-header>
+    <div class="p-chat__content -scale-y-100 flex flex-col pt-11 content inner-scroll" [class.scale-y-100]="!(messages$ | async)?.length">
+      <ng-container *ngIf="(messages$ | async)?.length; else empty">
+        <app-dialog-list [messages]="messages$ | async"></app-dialog-list>
+      </ng-container>
+      <ng-template #empty>
+        <app-dialog-placeholder></app-dialog-placeholder>
+      </ng-template>
+    </div>
+    <div class="fixed bottom-0 left-0 w-full h-20">
+      <app-dialog-form></app-dialog-form>
+    </div>
+  </div>
+</div>

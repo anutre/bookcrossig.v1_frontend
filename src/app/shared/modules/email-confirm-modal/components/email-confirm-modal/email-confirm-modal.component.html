@@ -1,0 +1,11 @@
+<app-bottom-modal>
+  <ng-container ngProjectAs="content">
+    <p>Ваш аккаунт не подтверждён</p>
+    <p>Перейдите по ссылке из письма на почте указанной при регистрации чтобы
+      верифицировать аккаунт</p>
+  </ng-container>
+  <ng-container ngProjectAs="actions">
+    <app-button [mode]="['fw', 'md']" [mat-dialog-close]="true">Принять и продолжить</app-button>
+    <app-button [mode]="['active', 'fw', 'md']" (btnClick)="resendClickHandler()">Выслать письмо повторно</app-button>
+  </ng-container>
+</app-bottom-modal>

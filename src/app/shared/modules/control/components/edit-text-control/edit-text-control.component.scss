@@ -1,0 +1,27 @@
+.c-control {
+  @apply flex items-start justify-start gap-3;
+
+  &--inner {
+    @apply flex flex-col grow relative;
+  }
+
+  &--label {
+    @apply text-gray-300 mt-1 mb-2 font-normal text-xs;
+  }
+
+  &__input {
+    @apply bg-gray-100 py-3 pr-9 pl-4 rounded-3xl box-border border border-solid border-white-500 font-normal text-sm;
+
+    &:disabled {
+      @apply opacity-70 cursor-not-allowed;
+    }
+
+    &::placeholder {
+      @apply text-white-500 font-normal text-sm;
+    }
+  }
+
+  &__icon {
+    @apply absolute right-5 bottom-3 cursor-pointer;
+  }
+}

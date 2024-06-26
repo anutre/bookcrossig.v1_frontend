@@ -1,0 +1,6 @@
+body {
+  .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full,
+  .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full {
+    @apply bg-red-900 border-red-900;
+  }
+}

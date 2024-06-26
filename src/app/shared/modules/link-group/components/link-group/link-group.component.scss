@@ -1,0 +1,31 @@
+.c-link-group {
+
+  &__item {
+
+    ::ng-deep {
+      .c-link {
+        @apply rounded-none;
+      }
+    }
+
+    &:first-child {
+      @apply basis-1/2;
+      ::ng-deep {
+        .c-link {
+          @apply rounded-tl-3xl rounded-bl-3xl rounded-tr-none rounded-br-none #{!important};
+        }
+      }
+    }
+
+    &:last-child {
+      @apply basis-1/2;
+      ::ng-deep {
+        .c-link {
+          @apply rounded-tr-3xl rounded-br-3xl rounded-tl-none rounded-bl-none #{!important};
+        }
+      }
+    }
+  }
+
+
+}

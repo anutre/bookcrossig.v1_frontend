@@ -1,0 +1,21 @@
+<ng-container *ngIf="!isExternal; else external">
+  <a [routerLink]="path" [routerLinkActive]="'user-menu-link--active'"
+     class="user-menu-link flex items-center px-4 gap-3 min-h-[68px] text-gray-900">
+    <span class="w-4 h-4">
+      <app-icon [name]="icon"></app-icon>
+    </span>
+    <span class="grow">
+      {{text}}
+    </span>
+  </a>
+</ng-container>
+<ng-template #external>
+  <a [href]="path" class="user-menu-link flex items-center px-4 gap-3 min-h-[68px] text-gray-900">
+    <span class="w-4 h-4">
+      <app-icon [name]="icon"></app-icon>
+    </span>
+    <span class="grow">
+      {{text}}
+    </span>
+  </a>
+</ng-template>

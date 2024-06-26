@@ -1,0 +1,16 @@
+<div class="c-message-item">
+  <a [routerLink]="['/messages/' + chat.user_receive.id]"
+     class="flex gap-4 items-start pt-4 cursor-pointer">
+    <div class="w-12 h-12 overflow-hidden rounded-full">
+      <app-image [src]="chat.user_receive.photo" initWidth="50" initHeight="50"></app-image>
+    </div>
+    <div class="grow relative pb-4 border-b-gray-50 border-solid border-b">
+      <p class="font-bold text-base text-gray-900 mb-2 pr-20 truncate ">{{chat.user_receive.name}}</p>
+      <div class="flex items-center gap-2">
+        <p class="font-normal text-sm m-0 grow text-gray-400">{{chat.text}}</p>
+        <div *ngIf="!chat.viewed" class="c-message-item__active relative shrink-0 w-4"></div>
+      </div>
+      <div class="absolute top-0 right-0 font-normal text-sm text-white-500">{{chat.date}}</div>
+    </div>
+  </a>
+</div>

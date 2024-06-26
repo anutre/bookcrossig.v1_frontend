@@ -1,0 +1,9 @@
+.p-profile {
+  &__logout {
+    ::ng-deep {
+      .c-button {
+        @apply font-normal text-sm p-0;
+      }
+    }
+  }
+}

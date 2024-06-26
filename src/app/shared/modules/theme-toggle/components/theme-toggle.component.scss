@@ -1,0 +1,40 @@
+:host {
+  mat-slide-toggle {
+    ::ng-deep {
+      .mdc-switch.mdc-switch--unselected:enabled {
+        .mdc-switch__handle::after {
+          @apply bg-red-900;
+        }
+
+        &:hover:not(:focus):not(:active) .mdc-switch__handle::after {
+          @apply bg-red-900;
+        }
+
+        .mdc-switch__icon {
+          @apply fill-white-100;
+        }
+      }
+      .mdc-switch:enabled {
+        .mdc-switch__track::after {
+          @apply bg-gray-300 dark:bg-red-200/90;
+        }
+        &:hover:not(:focus):not(:active) .mdc-switch__track::after {
+          @apply bg-gray-300;
+        }
+      }
+
+      .mdc-switch.mdc-switch--selected:enabled {
+        .mdc-switch__icon {
+          @apply fill-white-500;
+        }
+        .mdc-switch__handle::after {
+          @apply bg-pink-500;
+        }
+
+        &:hover:not(:focus):not(:active) .mdc-switch__handle::after {
+          @apply bg-white-400;
+        }
+      }
+    }
+  }
+}

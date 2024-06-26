@@ -1,0 +1,13 @@
+body {
+  .mat-mdc-select {
+    --mdc-shape-small: 0;
+  }
+
+  .mat-mdc-select-arrow {
+    @apply text-red-900;
+  }
+
+  .mat-mdc-select-value-text {
+    @apply text-gray-900 font-normal text-sm;
+  }
+}

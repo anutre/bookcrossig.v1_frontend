@@ -1,0 +1,9 @@
+.p-personal-details {
+  &__logout {
+    &::ng-deep {
+      .c-button {
+        @apply p-0 text-base font-normal text-pink-400 hover:text-red-900;
+      }
+    }
+  }
+}

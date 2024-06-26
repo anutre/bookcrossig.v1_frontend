@@ -1,0 +1,20 @@
+<div class="c-search-control" [ngClass]="{'c-search-control--disabled': disabled}">
+  <input class="c-search-control__input"
+         #inputRef
+         [id]="id"
+         [type]="controlType"
+         [placeholder]="placeholder"
+         [disabled]="!!disabled"
+         [(ngModel)]="value"
+         [name]="name"
+         (input)="changeHandler()"
+  >
+  <div
+    class="c-search-control__icon">
+    <app-icon
+      name="search"
+    >
+    </app-icon>
+  </div>
+</div>
+
